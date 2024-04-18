@@ -27,7 +27,9 @@ const EmployerList: React.FC = () => {
   return (
     <div className="">
       <div className="flex items-start">
-        <h1 className="text-4xl text-gray-700 text-center py-2">Employers</h1>
+        <h1 className="text-4xl text-gray-700 text-center py-2">
+          Funcionários
+        </h1>
       </div>
       <Table>
         <TableHeader>

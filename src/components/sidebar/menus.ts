@@ -13,6 +13,6 @@ export const sidebarMenus = [
   {
     title: "Funcionários",
     icon: "person_apron",
-    link: "/employers",
+    link: "/employee",
   },
 ]
