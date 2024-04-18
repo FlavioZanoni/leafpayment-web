@@ -38,7 +38,10 @@ const LeafPaymentGenerate: React.FC = () => {
       <button
         className="px-4 py-2 ml-4 text-white bg-indigo-600 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         onClick={() => {
-          window.location.href = `https://reports-git-eleniltu-folhastech.vercel.app/pdf/LeafPayment?slug=generate-payroll/${selectedEmployee}&reportProductId=leafPay&bearer=ab`
+          window.open(
+            `https://reports-git-eleniltu-folhastech.vercel.app/pdf/LeafPayment?slug=generate-payroll/${selectedEmployee}&reportProductId=leafPay&bearer=ab`,
+            "_blank"
+          )
         }}
         disabled={selectedEmployee === "-1"}
       >
