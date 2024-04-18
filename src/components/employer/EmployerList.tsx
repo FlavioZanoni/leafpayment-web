@@ -36,7 +36,6 @@ const EmployerList: React.FC = () => {
             <TableHead className="w-[400px]">Name</TableHead>
             <TableHead>Position</TableHead>
             <TableHead>Salary</TableHead>
-            <TableHead className="text-right">Salary</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

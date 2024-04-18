@@ -25,8 +25,8 @@ const LeafPaymentGenerate: React.FC = () => {
           setSelectedEmployee(event.target.value)
         }}
       >
-        <option disabled value="">
-          Selecione um employer
+        <option defaultChecked disabled value="-1">
+          Selecione um funcionário
         </option>
         {data.map((employee: any) => (
           <option key={employee.id} value={employee.id}>
@@ -40,6 +40,7 @@ const LeafPaymentGenerate: React.FC = () => {
         onClick={() => {
           window.location.href = `https://reports-git-eleniltu-folhastech.vercel.app/pdf/LeafPayment?slug=generate-payroll/${selectedEmployee}&reportProductId=leafPay&bearer=ab`
         }}
+        disabled={selectedEmployee === "-1"}
       >
         Generate
       </button>
