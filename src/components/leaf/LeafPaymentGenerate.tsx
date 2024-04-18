@@ -28,7 +28,7 @@ const LeafPaymentGenerate: React.FC = () => {
         <option disabled value="">
           Selecione um employer
         </option>
-        {data.employees.map((employee: any) => (
+        {data.map((employee: any) => (
           <option key={employee.id} value={employee.id}>
             {employee.name}
           </option>

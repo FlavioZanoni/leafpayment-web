@@ -40,13 +40,14 @@ const EmployerList: React.FC = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data.employees.map((employee: any) => (
+          {data.map((employee: any) => (
             <TableRow key={employee.id}>
               <TableCell className="font-medium">{employee.id}</TableCell>
               <TableCell className="font-medium">{employee.name}</TableCell>
-              <TableCell>{employee.position}</TableCell>
-              <TableCell>{employee.name}</TableCell>
-              <TableCell className="text-right">{employee.position}</TableCell>
+              <TableCell className="font-medium">{employee.position}</TableCell>
+              <TableCell className="font-medium">
+                {employee.base_salary}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
