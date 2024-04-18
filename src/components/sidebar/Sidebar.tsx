@@ -1,10 +1,10 @@
-import SidebarButton from "./SidebarButton";
-import { sidebarMenus } from "./menus";
-import Logo from "./Logo";
-import { Router, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
+import Logo from "./Logo"
+import SidebarButton from "./SidebarButton"
+import { sidebarMenus } from "./menus"
 
 function Sidebar() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
     <>
       <aside
@@ -21,16 +21,16 @@ function Sidebar() {
                   title={menu.title}
                   icon={menu.icon}
                   onClick={() => {
-                    if (menu.link) navigate(menu.link);
+                    if (menu.link) navigate(menu.link)
                   }}
                 />
-              );
+              )
             })}
           </ul>
         </div>
       </aside>
     </>
-  );
+  )
 }
 
-export default Sidebar;
+export default Sidebar

@@ -1,12 +1,9 @@
 type Props = {
-    name: String
+  name: String
 }
 
-
-function Icon({name}: Props){
-    return(
-        <span className="material-symbols-outlined">{name}</span>
-    )
+function Icon({ name }: Props) {
+  return <span className="material-symbols-outlined">{name}</span>
 }
 
 export default Icon

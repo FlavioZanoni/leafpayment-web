@@ -1,26 +1,29 @@
-import React from "react";
+import axios from "axios"
+import React, { useEffect, useState } from "react"
 import {
   Table,
-  TableHeader,
   TableBody,
-  TableRow,
-  TableHead,
   TableCell,
-} from "../ui/table";
-
-interface Employer {
-  id: number;
-  name: string;
-  position: string;
-}
-
-const employers: Employer[] = [
-  { id: 1, name: "John Doe", position: "Software Engineer" },
-  { id: 2, name: "Jane Smith", position: "UI/UX Designer" },
-  { id: 3, name: "Mike Johnson", position: "Product Manager" },
-];
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table"
 
 const EmployerList: React.FC = () => {
+  const [data, setData] = useState<any>()
+
+  const fetchData = () => {
+    axios.get("https://leafpayment.onrender.com/employees").then((res) => {
+      setData(res.data)
+    })
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  if (!data) return <div>Loading...</div>
+
   return (
     <div className="">
       <div className="flex items-start">
@@ -29,7 +32,7 @@ const EmployerList: React.FC = () => {
       <Table>
         <TableHeader>
           <TableRow>
-          <TableHead className="w-[100px]">Id</TableHead>
+            <TableHead className="w-[100px]">Id</TableHead>
             <TableHead className="w-[400px]">Name</TableHead>
             <TableHead>Position</TableHead>
             <TableHead>Salary</TableHead>
@@ -37,19 +40,19 @@ const EmployerList: React.FC = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {employers.map((employer) => (
-            <TableRow key={employer.id}>
-              <TableCell className="font-medium">{employer.id}</TableCell>
-              <TableCell className="font-medium">{employer.name}</TableCell>
-              <TableCell>{employer.position}</TableCell>
-              <TableCell>{employer.name}</TableCell>
-              <TableCell className="text-right">{employer.position}</TableCell>
+          {data.employees.map((employee: any) => (
+            <TableRow key={employee.id}>
+              <TableCell className="font-medium">{employee.id}</TableCell>
+              <TableCell className="font-medium">{employee.name}</TableCell>
+              <TableCell>{employee.position}</TableCell>
+              <TableCell>{employee.name}</TableCell>
+              <TableCell className="text-right">{employee.position}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </div>
-  );
-};
+  )
+}
 
-export default EmployerList;
+export default EmployerList
